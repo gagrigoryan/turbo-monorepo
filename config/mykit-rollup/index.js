@@ -12,7 +12,8 @@ import del from "rollup-plugin-delete";
 import eslint from "@rollup/plugin-eslint";
 import url from "@rollup/plugin-url";
 
-const getRollupOptions = ({ tsConfigPath = "./tsconfig.json" }) => {
+const getRollupOptions = (props) => {
+  const tsconfig = props?.tsconfigPath || "./tsconfig.json";
   return [
     {
       input: "src/index.ts",
@@ -46,7 +47,7 @@ const getRollupOptions = ({ tsConfigPath = "./tsconfig.json" }) => {
         peerDepsExternal(),
         resolve(),
         commonjs(),
-        typescript({ tsconfig: tsConfigPath }),
+        typescript({ tsconfig }),
         terser(),
         sourceMaps(),
         eslint({
