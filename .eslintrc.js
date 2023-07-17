@@ -1,7 +1,7 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   root: true,
-  // This tells ESLint to load the config from the package `eslint-config-acme`
-  extends: ["acme"],
+  extends: ["mykit"],
   settings: {
     next: {
       rootDir: ["apps/*/"],
